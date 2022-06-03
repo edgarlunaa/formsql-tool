@@ -18,7 +18,8 @@ class App (object):
         y=''
         self.ui.txt_Code.clear()
         self.ui.txt_FEO.clear()
-        txt_variable = self.ui.txt_Variable.text()
+        txt_variable = self.ui.txt_Variable.text().replace("ct_dd_", "").replace("ct_cb_", "")
+        
         TOF = self.ui.cb_TOF.currentIndex()
         TODD = self.ui.cb_TODD.currentIndex()
 
@@ -55,7 +56,7 @@ class App (object):
             x = x[:-1]
 
             if TOF == 0 and TODD == 2:
-                y+= "else ''''\nend as [txt_" + txt_variable + "],"
+                y+= "else ''''\nend as [ct_" + txt_variable + "],"
 
         if TOF == 1:
             y+="case when [" + txt_variable + "] = ''True'' then ''XX'' else '''' end as [cb_" + txt_variable + "],\n"
