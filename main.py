@@ -30,7 +30,7 @@ class App (object):
             msg.setWindowTitle('Error')
             msg.setText('Error: you must place a varable name.')
             msg.setStandardButtons(QMessageBox.Ok)
-            retVal = msg.exec()
+            msg.exec()
             return
 
 
