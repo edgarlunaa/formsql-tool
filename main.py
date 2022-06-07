@@ -53,8 +53,10 @@ class App (object):
                 elif TOF == 0 and TODD == 2:
                     y+="when [" + txt_variable + "] = ''" + str(i+1) + "'' then ''" + txt_item + "''\n"
                 
-            x = x[:-1]
+            
 
+            x+=str(self.ui.lst_Elements.count()+1) + "|"
+            
             if TOF == 0 and TODD == 2:
                 y+= "else ''''\nend as [ct_" + txt_variable + "],"
 
