@@ -42,21 +42,20 @@ class App (object):
 
         if self.ui.lst_Elements.count() != 0 and (TODD == 1 or TODD == 2):
             y+='case '
-
+            x+='1|;'
             for i in range(self.ui.lst_Elements.count()):
 
                 txt_item = self.ui.lst_Elements.item(i).text()
 
-                x+=str(i+1)+'|'+txt_item+';'
+                x+=str(i+2)+'|'+txt_item+';'
                 if TOF == 0 and TODD == 1:
-                    y+="when [" + txt_variable + "] = ''"+str(i+1)+ "'' then ''XX'' else '''' end as [cb_" + txt_item.replace(" ", '') + "],\n"
+                    y+="when [" + txt_variable + "] = ''"+str(i+2)+ "'' then ''XX'' else '''' end as [cb_" + txt_item.replace(" ", '') + "],\n"
                 elif TOF == 0 and TODD == 2:
-                    y+="when [" + txt_variable + "] = ''" + str(i+1) + "'' then ''" + txt_item + "''\n"
+                    y+="when [" + txt_variable + "] = ''" + str(i+2) + "'' then ''" + txt_item + "''\n"
                 
             
+            x = x[:-1]
 
-            x+=str(self.ui.lst_Elements.count()+1) + "|"
-            
             if TOF == 0 and TODD == 2:
                 y+= "else ''''\nend as [ct_" + txt_variable + "],"
 
